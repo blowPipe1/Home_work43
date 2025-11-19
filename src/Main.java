@@ -1,3 +1,4 @@
+import Handler.FileHandler;
 import com.sun.net.httpserver.Headers;
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpServer;
@@ -22,7 +23,7 @@ public class Main {
     }
 
     private static void initRoutes(HttpServer server) {
-        server.createContext("/", Main::handleRootRequest);
+        server.createContext("/", new FileHandler());
         server.createContext("/apps/", Main::handleAppsRequest);
         server.createContext("/apps/profile", Main::handleProfileRequest);
         server.createContext("/classwork", Main::handleRequest);
