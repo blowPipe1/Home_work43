@@ -24,6 +24,7 @@ public class Main {
 
     private static void initRoutes(HttpServer server) {
         server.createContext("/", new FileHandler());
+        server.createContext("/root", Main::handleRootRequest);
         server.createContext("/apps/", Main::handleAppsRequest);
         server.createContext("/apps/profile", Main::handleProfileRequest);
         server.createContext("/classwork", Main::handleRequest);
